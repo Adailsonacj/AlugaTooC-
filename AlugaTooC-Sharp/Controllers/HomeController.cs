@@ -26,5 +26,25 @@ namespace AlugaTooC_Sharp.Controllers
 
             return View();
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult formCadastroEndereco()
+        {
+            return View();
+        }
+        public ActionResult formCadastroPessoa()
+        {
+            return View();
+        }
+        public ActionResult formCadastroUsuario()
+        {
+            return View();
+        }
+        public ActionResult formCidadesEstados()
+        {
+            return View();
+        }
     }
 }

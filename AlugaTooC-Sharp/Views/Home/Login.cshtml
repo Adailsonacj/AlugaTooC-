@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link href="~/Content/signin.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-signin" style="background: #42dea4;">
+            <h2 class="text-center">Login</h2>
+            <form method="POST" action="ValidaLogin.php">
+
+                <input type="text" name="login" placeholder="Digite o seu usuário" class="form-control"><br>
+
+                <input type="password" name="senha" placeholder="Digite a sua senha" class="form-control"><br>
+
+                <input type="submit" name="btnLogin" value="Acessar" class="btn btn-success btn-block">
+
+                <div class="center" style="margin-top: 20px;">
+                    @Html.ActionLink("Cadastre-se", "formCidadesEstados", "home");
+                    @*@<a href="~/Views/Home/formCadastroEndereco">Cadastre-se</a>*@
+                    @*@ <a class="btn btn-success" asp-action="formCadastroEndereco">Cadastre-se</a>*@
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
