@@ -20,7 +20,7 @@ namespace AlugaTooC_Sharp.Controllers
             Conexao con = new Conexao();
 
             Estado es = new Estado();
-            es.adicionaEstado("Estado Novo", "EN", con.conecta());
+            es.adicionaEstado("Grosélia", "GA", con.conecta());
 
 
             ViewBag.Message = "Só aqui no AlugaToo.";

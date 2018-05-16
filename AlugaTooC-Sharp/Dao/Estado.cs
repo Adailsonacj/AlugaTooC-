@@ -10,7 +10,7 @@ namespace AlugaTooC_Sharp.Dao
     {
         public void adicionaEstado(String nome, String uf, NpgsqlConnection con)
         {
-            NpgsqlCommand script = new NpgsqlCommand("INSERT INTO public.estados(nome, uf)VALUES ("+nome+", "+uf+")", con);
+            NpgsqlCommand script = new NpgsqlCommand("INSERT INTO public.estados(nome, uf)VALUES ('" + nome + "', '" + uf + "' )", con);
             script.ExecuteNonQuery();
         }
     }

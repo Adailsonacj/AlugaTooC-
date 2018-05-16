@@ -151,7 +151,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Dao\Cidade.cs" />
     <Compile Include="Dao\Estado.cs" />
-    <Compile Include="Database\conexao.cs" />
+    <Compile Include="Database\Conexao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
