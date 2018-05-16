@@ -194,3 +194,7 @@ C:\Users\adail\Documents\GitHub\AlugaTooC-Sharp\AlugaTooC-Sharp\obj\Debug\AlugaT
 C:\Users\adail\Documents\GitHub\AlugaTooC-Sharp\AlugaTooC-Sharp\obj\Debug\AlugaTooC-Sharp.csproj.CopyComplete
 C:\Users\adail\Documents\GitHub\AlugaTooC-Sharp\AlugaTooC-Sharp\obj\Debug\AlugaTooC-Sharp.dll
 C:\Users\adail\Documents\GitHub\AlugaTooC-Sharp\AlugaTooC-Sharp\obj\Debug\AlugaTooC-Sharp.pdb
+C:\Users\adail\Documents\GitHub\AlugaTooC-Sharp\AlugaTooC-Sharp\bin\Npgsql.dll
+C:\Users\adail\Documents\GitHub\AlugaTooC-Sharp\AlugaTooC-Sharp\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\adail\Documents\GitHub\AlugaTooC-Sharp\AlugaTooC-Sharp\bin\Npgsql.xml
+C:\Users\adail\Documents\GitHub\AlugaTooC-Sharp\AlugaTooC-Sharp\bin\System.Threading.Tasks.Extensions.xml

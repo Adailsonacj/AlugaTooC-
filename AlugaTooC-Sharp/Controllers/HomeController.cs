@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AlugaTooC_Sharp.Dao;
+using AlugaTooC_Sharp.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +17,12 @@ namespace AlugaTooC_Sharp.Controllers
 
         public ActionResult About()
         {
+            Conexao con = new Conexao();
+
+            Estado es = new Estado();
+            es.adicionaEstado("Estado Novo", "EN", con.conecta());
+
+
             ViewBag.Message = "Só aqui no AlugaToo.";
 
             return View();
