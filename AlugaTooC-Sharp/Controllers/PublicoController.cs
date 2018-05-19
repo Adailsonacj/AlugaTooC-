@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace AlugaTooC_Sharp.Controllers
 {
-    public class HomeController : Controller
+    public class PublicoController : Controller
     {
         public ActionResult Index()
         {
