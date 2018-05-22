@@ -148,7 +148,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PublicoController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Dao\Cidade.cs" />
     <Compile Include="Dao\Estado.cs" />
     <Compile Include="Dao\Usuario.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -203,6 +205,18 @@
     <Content Include="Views\Home\formCidadesEstados.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\EfetuaLogin.cshtml" />
+=======
+    <Content Include="Views\Publico\About.cshtml" />
+    <Content Include="Views\Publico\Contact.cshtml" />
+    <Content Include="Views\Publico\Index.cshtml" />
+    <Content Include="Views\Publico\Login.cshtml" />
+    <Content Include="Views\Publico\formCadastroEndereco.cshtml" />
+    <Content Include="Views\Publico\formCadastroPessoa.cshtml" />
+    <Content Include="Views\Publico\formCadastroUsuario.cshtml" />
+    <Content Include="Views\Publico\formCidadesEstados.cshtml" />
+    <Content Include="Views\Privado\formCadastroFerramenta.cshtml" />
+    <Content Include="Views\Privado\PaginaUsuario.cshtml" />
+>>>>>>> bd7d6b665e68e632b6c6c9013bd3c8d6bc59581f
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
