@@ -7,5 +7,8 @@ namespace AlugaTooC_Sharp.Models
 {
     public class EstadoModel
     {
+        public int Id { get; private set; }
+        public String Nome { get; private set; }
+        public String Uf { get; private set; }
     }
 }
