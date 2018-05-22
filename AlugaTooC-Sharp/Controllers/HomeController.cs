@@ -54,5 +54,15 @@ namespace AlugaTooC_Sharp.Controllers
         {
             return View();
         }
+        public ActionResult EfetuaLogin(String usuario, String senha)
+        {
+            Conexao con = new Conexao();
+            Usuario us = new Usuario();
+            if(us.verificaUsuario(usuario, senha, con.conecta()) != null)
+            {
+                return View();
+            }
+            return null;
+        }
     }
 }

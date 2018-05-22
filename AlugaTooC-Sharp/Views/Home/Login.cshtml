@@ -1,18 +1,22 @@
-﻿@{
+﻿
+@{
+    Layout = null;
     ViewBag.Title = "Login";
 }
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <link href="~/Content/signin.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
         <div class="form-signin" style="background: #42dea4;">
             <h2 class="text-center">Login</h2>
-            <form method="POST" action="ValidaLogin.php">
+            <form method="post" action="EfetuaLogin">
 
-                <input type="text" name="login" placeholder="Digite o seu usuário" class="form-control"><br>
+                <input type="email" name="usuario" placeholder="Digite o seu usuário" class="form-control"><br>
 
                 <input type="password" name="senha" placeholder="Digite a sua senha" class="form-control"><br>
 
