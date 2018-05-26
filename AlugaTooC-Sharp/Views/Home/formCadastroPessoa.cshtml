@@ -1,7 +1,22 @@
 ﻿
 @{
-    ViewBag.Title = "formCadastroPessoa";
+    ViewBag.Title = "Cadastre-se";
 }
+<h3>@ViewBag.Message</h3>
 
-<h2>formCadastroPessoa</h2>
+<div class="container">
+    <form method="post" action="CadastraPessoa">
+        <center>
+            <div class="form-group">
+                <input type="text" name="nome" placeholder="Digite seu nome completo" class="form-control"><br>
 
+                <input type="date" name="nascimento" placeholder="Digite o sua data de nascimento" class="form-control"><br>
+
+                <input type="number" name="cpf" placeholder="Digite o seu CPF" class="form-control"><br>
+
+                <input type="number" name="rg" placeholder="Digite o seu RG" class="form-control"><br>
+            </div>
+            <input type="submit" name="btnCadastraEndereco" value="Cadastrar" class="btn btn-success"><br><br>
+        </center>
+    </form>
+</div>

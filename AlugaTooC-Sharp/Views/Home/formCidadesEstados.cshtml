@@ -2,15 +2,23 @@
 @{
     ViewBag.Title = "Cadastre-se";
 }
+<h3>@ViewBag.Message</h3>
 
 <h2>formCidades</h2>
 
 <div class="container">
-    <form method="" action="">
+    <form method="post" action="formCadastroPessoa">
         <center>
             <div class="form-group">
-                <select name="estado" class="custom-select"></select>
-                <select name="cidade" class="custom-select"></select>
+                <input type="number" name="estado" placeholder="Estado" class="form-control"><br>
+
+                <input type="number" name="cidade" placeholder="Cidade" class="form-control"><br>
+
+                <input type="text" name="bairro" placeholder="Digite Bairro" class="form-control"><br>
+
+                <input type="text" name="logradouro" placeholder="Logradouro" class="form-control"><br>
+
+                <input type="number" name="numero" placeholder="Seu número" class="form-control"><br>
             </div>
             <input type="submit" name="btnCadastraEndereco" value="Cadastrar" class="btn btn-success"><br><br>
         </center>

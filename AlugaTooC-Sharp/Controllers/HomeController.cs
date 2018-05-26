@@ -38,20 +38,13 @@ namespace AlugaTooC_Sharp.Controllers
         {
             return View();
         }
-        public ActionResult formCadastroEndereco()
-        {
-            return View();
-        }
-        public ActionResult formCadastroPessoa()
-        {
-            return View();
-        }
-        public ActionResult formCadastroUsuario()
-        {
-            return View();
-        }
         public ActionResult formCidadesEstados()
         {
+            /*Conexao con = new Conexao();
+            Estado es = new Estado();
+            
+            ViewBag.Message = es.getEstados(con.conecta()).ToString();
+            */
             return View();
         }
         public ActionResult EfetuaLogin(String usuario, String senha)
@@ -63,6 +56,24 @@ namespace AlugaTooC_Sharp.Controllers
                 return View();
             }
             return null;
+        }
+        public ActionResult formCadastroPessoa(int estado, int cidade, String bairro, String logradouro, int numero)
+        {
+            Conexao con = new Conexao();
+            Endereco en = new Endereco();
+            en.cadastraEndereco(bairro, numero, logradouro, cidade, con.conecta());
+            con.desconecta();
+            return View();
+        }
+        public ActionResult CadastraPessoa(String nome, String nascimento)
+        {
+            Endereco en = new Endereco();
+            Conexao con = new Conexao();
+            Pessoa pe = new Pessoa();
+            pe.cadastraPessoa(nome, nascimento, en.getUltimoRegistro(con.conecta()), con.conecta());
+            //PessoaFisica pf = new PessoaFisica();
+            //pf.cadastraPessoaFisica(cpf, rg, pe.getUltimoRegistro(con.conecta()), con.conecta());
+            return View();
         }
     }
 }
