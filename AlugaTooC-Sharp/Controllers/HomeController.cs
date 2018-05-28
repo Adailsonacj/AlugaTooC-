@@ -1,5 +1,7 @@
 ﻿using AlugaTooC_Sharp.Dao;
 using AlugaTooC_Sharp.Database;
+using AlugaTooC_Sharp.Models;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,16 @@ namespace AlugaTooC_Sharp.Controllers
 {
     public class HomeController : Controller
     {
+
+        public static int estado;
+        public static int cidade;
+        public static String bairro;
+        public static String logradouro;
+        public static int numero;
+        public static int lerolero = 4000;
+
+        EnderecoModel endereco;
+
         public ActionResult Index()
         {
             return View();
@@ -51,7 +63,7 @@ namespace AlugaTooC_Sharp.Controllers
         {
             Conexao con = new Conexao();
             Usuario us = new Usuario();
-            if(us.verificaUsuario(usuario, senha, con.conecta()) != null)
+            if (us.verificaUsuario(usuario, senha, con.conecta()) != null)
             {
                 return View();
             }
@@ -59,20 +71,29 @@ namespace AlugaTooC_Sharp.Controllers
         }
         public ActionResult formCadastroPessoa(int estado, int cidade, String bairro, String logradouro, int numero)
         {
-            Conexao con = new Conexao();
-            Endereco en = new Endereco();
-            en.cadastraEndereco(bairro, numero, logradouro, cidade, con.conecta());
-            con.desconecta();
+            HomeController.estado = estado;
+            HomeController.cidade = cidade;
+            HomeController.bairro = bairro;
+            HomeController.logradouro = logradouro;
+            HomeController.numero = numero;
             return View();
         }
-        public ActionResult CadastraPessoa(String nome, String nascimento)
+        public ActionResult CadastroSucesso(String nome, String nascimento)
         {
             Endereco en = new Endereco();
             Conexao con = new Conexao();
             Pessoa pe = new Pessoa();
-            pe.cadastraPessoa(nome, nascimento, en.getUltimoRegistro(con.conecta()), con.conecta());
+            NpgsqlConnection co = con.conecta();
+            //en.cadastraEndereco(HomeController.bairro, HomeController.numero, HomeController.logradouro, HomeController.cidade, co);
+            var ultimoEndereco = en.getUltimoRegistro(co);
+
+            pe.cadastraPessoa(nome, nascimento, ultimoEndereco, co);
+
+
             //PessoaFisica pf = new PessoaFisica();
             //pf.cadastraPessoaFisica(cpf, rg, pe.getUltimoRegistro(con.conecta()), con.conecta());
+            con.desconecta();
+
             return View();
         }
     }

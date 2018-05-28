@@ -160,6 +160,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CidadeModel.cs" />
+    <Compile Include="Models\EnderecoModel.cs" />
     <Compile Include="Models\EstadoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -206,7 +207,7 @@
     <Content Include="Views\Home\formCidadesEstados.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\EfetuaLogin.cshtml" />
-    <Content Include="Views\Home\CadastraPessoa.cshtml" />
+    <Content Include="Views\Home\CadastroSucesso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

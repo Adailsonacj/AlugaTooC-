@@ -10,7 +10,7 @@ namespace AlugaTooC_Sharp.Dao
     {
         public void cadastraPessoa(String nome,String date, int fkIdEndereco, NpgsqlConnection con)
         {
-            NpgsqlCommand script = new NpgsqlCommand("INSERT INTO public.pessoa(nome, nascimento, \"fkIdEndereco\") VALUES ('"+nome+"', '"+date+"', '"+fkIdEndereco+"')", con);
+            NpgsqlCommand script = new NpgsqlCommand("INSERT INTO public.pessoa(nome, nascimento, fkIdEndereco) VALUES ('"+nome+"', '"+date+"', '"+fkIdEndereco+"')", con);
             script.ExecuteNonQuery();
         }
         public int getUltimoRegistro(NpgsqlConnection con)
@@ -20,7 +20,7 @@ namespace AlugaTooC_Sharp.Dao
             var reader = script.ExecuteReader();
             while (reader.Read())
             {
-                result = reader.GetInt16(0);
+                result = Convert.ToInt32(reader["idPessoa"]);
             }
             return result;
         }
