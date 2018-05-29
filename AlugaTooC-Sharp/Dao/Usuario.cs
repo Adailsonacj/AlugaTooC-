@@ -20,5 +20,10 @@ namespace AlugaTooC_Sharp.Dao
             }
             return result;
         }
+        public void cadastraUsuario(String usuario, String senha, int fkIdPessoaF, NpgsqlConnection con)
+        {
+            NpgsqlCommand script = new NpgsqlCommand("INSERT INTO public.usuario(usuario, senha, fkIdPessoaF) VALUES ('" + usuario + "', '" + senha + "','" + fkIdPessoaF + "')", con);
+            script.ExecuteNonQuery();
+        }
     }
 }

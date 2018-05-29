@@ -78,20 +78,33 @@ namespace AlugaTooC_Sharp.Controllers
             HomeController.numero = numero;
             return View();
         }
-        public ActionResult CadastroSucesso(String nome, String nascimento)
+        public ActionResult CadastroSucesso(String nome, String nascimento, Int64 cpf, Int64 rg, String usuario, String senha, String senha1)
         {
-            Endereco en = new Endereco();
             Conexao con = new Conexao();
+            Endereco en = new Endereco();
             Pessoa pe = new Pessoa();
+            PessoaFisica pf = new PessoaFisica();
+            Usuario us = new Usuario();
             NpgsqlConnection co = con.conecta();
-            //en.cadastraEndereco(HomeController.bairro, HomeController.numero, HomeController.logradouro, HomeController.cidade, co);
-            var ultimoEndereco = en.getUltimoRegistro(co);
-
-            pe.cadastraPessoa(nome, nascimento, ultimoEndereco, co);
-
-
-            //PessoaFisica pf = new PessoaFisica();
-            //pf.cadastraPessoaFisica(cpf, rg, pe.getUltimoRegistro(con.conecta()), con.conecta());
+            if (HomeController.bairro != null && HomeController.numero != 0 && HomeController.logradouro != null && HomeController.cidade != 0)
+            {
+                if (nome != null && nascimento != null)
+                {
+                    if (cpf != 0 && rg != 0)
+                    {
+                        if (usuario != null && senha != null)
+                        {
+                            if (senha == senha1)
+                            {
+                                en.cadastraEndereco(HomeController.bairro, HomeController.numero, HomeController.logradouro, HomeController.cidade, co);
+                                pe.cadastraPessoa(nome, nascimento, en.getUltimoRegistro(co), co);
+                                pf.cadastraPessoaFisica(cpf, rg, pe.getUltimoRegistro(co), co);
+                                us.cadastraUsuario(usuario, senha, pf.getUltimoRegistro(co), co);
+                            }
+                        }
+                    }
+                }
+            }
             con.desconecta();
 
             return View();
