@@ -15,7 +15,7 @@ namespace AlugaTooC_Sharp.Controllers
         }
         public void btnPaginaUsuario(String btn)
         {
-            if (btn.Equals("alugarProduto"))
+            if (btn.Equals("ALUGAR PRODUTO"))
             {
                 Response.Redirect("~/Home/Index");
             }
