@@ -20,7 +20,6 @@ namespace AlugaTooC_Sharp.Controllers
         public static int numero;
         public static int lerolero = 4000;
 
-        EnderecoModel endereco;
 
         public ActionResult Index()
         {
@@ -59,24 +58,35 @@ namespace AlugaTooC_Sharp.Controllers
             */
             return View();
         }
-        public ActionResult EfetuaLogin(String usuario, String senha)
+        public void EfetuaLogin(String usuario, String senha)
         {
             Conexao con = new Conexao();
             Usuario us = new Usuario();
             if (us.verificaUsuario(usuario, senha, con.conecta()) != null)
             {
-                return View();
+                //this.Session.Add(usuario, );
+                Response.Redirect("~/Home/Index");
+
             }
-            return null;
+            Response.Redirect("~/Home/Login");
+           
         }
         public ActionResult formCadastroPessoa(int estado, int cidade, String bairro, String logradouro, int numero)
         {
-            HomeController.estado = estado;
-            HomeController.cidade = cidade;
-            HomeController.bairro = bairro;
-            HomeController.logradouro = logradouro;
-            HomeController.numero = numero;
-            return View();
+            if (estado == 0 && cidade == 0 && bairro == null && logradouro == null && numero == 0)
+            {
+                Response.Write("Os campos não podem estar vazios!");
+                return null;
+            }
+            else
+            {
+                HomeController.estado = estado;
+                HomeController.cidade = cidade;
+                HomeController.bairro = bairro;
+                HomeController.logradouro = logradouro;
+                HomeController.numero = numero;
+                return View();
+            }
         }
         public ActionResult CadastroSucesso(String nome, String nascimento, Int64 cpf, Int64 rg, String usuario, String senha, String senha1)
         {
