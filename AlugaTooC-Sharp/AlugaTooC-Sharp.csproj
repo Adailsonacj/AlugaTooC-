@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PrivadasController.cs" />
     <Compile Include="Dao\Cidade.cs" />
     <Compile Include="Dao\Endereco.cs" />
@@ -210,9 +211,11 @@
     <Content Include="Views\Home\CadastroSucesso.cshtml" />
     <Content Include="Views\Privadas\CadastroProduto.cshtml" />
     <Content Include="Views\Privadas\PaginaUsuario.cshtml" />
+    <Content Include="Views\Home\EfetuaLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>

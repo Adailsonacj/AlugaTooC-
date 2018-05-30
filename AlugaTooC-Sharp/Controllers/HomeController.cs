@@ -58,18 +58,22 @@ namespace AlugaTooC_Sharp.Controllers
             */
             return View();
         }
-        public void EfetuaLogin(String usuario, String senha)
+        public ActionResult EfetuaLogin(String usuario, String senha)
         {
             Conexao con = new Conexao();
             Usuario us = new Usuario();
             if (us.verificaUsuario(usuario, senha, con.conecta()) != null)
             {
-                //this.Session.Add(usuario, );
-                Response.Redirect("~/Home/Index");
+                Session["usuario"] = usuario;
+                Session["senha"] = senha;
+                
+                return View();
 
             }
-            Response.Redirect("~/Home/Login");
-           
+            Session["usuario"] = null;
+            Session["senha"] = null;
+            return null;
+
         }
         public ActionResult formCadastroPessoa(int estado, int cidade, String bairro, String logradouro, int numero)
         {

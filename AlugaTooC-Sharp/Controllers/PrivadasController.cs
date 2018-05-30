@@ -11,7 +11,20 @@ namespace AlugaTooC_Sharp.Controllers
         // GET: Privadas
         public ActionResult PaginaUsuario()
         {
-            return View();
+            var vrSession = Session["usuario"];
+            if (vrSession == null)
+            {
+                Response.Redirect(("~/Home/Login"));
+                return null;
+            }
+            else
+            {
+                return View();
+            }
+            /*
+            LoginController login = new LoginController();
+            return login.validaSessao();            
+            */
         }
         public void btnPaginaUsuario(String btn)
         {
@@ -22,7 +35,16 @@ namespace AlugaTooC_Sharp.Controllers
         }
         public ActionResult CadastroProduto()
         {
-            return View();
+            var vrSession = Session["usuario"];
+            if (vrSession == null)
+            {
+                Response.Redirect(("~/Home/Login"));
+                return null;
+            }
+            else
+            {
+                return View();
+            }
         }
         public void AlteraEmail(String usuario, String senha)
         {

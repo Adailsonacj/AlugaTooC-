@@ -8,20 +8,20 @@
     <form method="post" action="CadastroSucesso">
         <center>
             <div class="form-group">
-                <input type="text" name="nome" placeholder="Digite seu nome completo" class="form-control"><br>
+                <input type="text" name="nome" placeholder="Digite seu nome completo" class="form-control" required><br>
 
-                <input type="date" name="nascimento" placeholder="Digite o sua data de nascimento" class="form-control"><br>
+                <input type="date" name="nascimento" placeholder="Digite o sua data de nascimento" class="form-control" required><br>
 
-                <input type="text" name="cpf" placeholder="Digite o seu CPF" class="form-control cpf-mask"><br>
+                <input type="text" name="cpf" placeholder="Digite o seu CPF" class="form-control cpf-mask" required><br>
 
-                <input type="number" name="rg" placeholder="Digite o seu RG" class="form-control"><br>
+                <input type="number" name="rg" placeholder="Digite o seu RG" class="form-control" required><br>
             </div>
-            <input type="email" name="usuario" placeholder="Digite um usuario para acessar o site" class="form-control"><br>
+            <input type="email" name="usuario" placeholder="Digite um usuario para acessar o site" class="form-control" required><br>
             <div>
-                <input type="password" name="senha" placeholder="Digite uma senha segura" class="form-control"><br>
-                <input type="password" name="senha1" placeholder="Confirme sua senha" class="form-control"><br>
+                <input type="password" name="senha" placeholder="Digite uma senha segura" class="form-control" required><br>
+                <input type="password" name="senha1" placeholder="Confirme sua senha" class="form-control" required><br>
             </div>
-            <input type="submit" name="btnCadastraEndereco" value="Cadastrar" class="btn btn-success"><br><br>
+            <input type="submit" name="btnCadastraEndereco" value="Cadastrar" class="btn btn-success" required><br><br>
         </center>
     </form>
 </div>
