@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "formCidades";
+}
+
+<h2>Selecione sua Cidade</h2>
+<form method="post" action="formEndereco">
+    <select name="cidade" class="custom-select">
+        @foreach (var cidade in ViewBag.Model)
+        {
+            <option value="@cidade.Id">@cidade.Nome</option>
+        }
+    </select><br><br>
+    <input type="submit" name="btnCidade" value="Enviar" class="btn btn-success" required><br>
+
+</form>

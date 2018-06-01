@@ -31,10 +31,10 @@ namespace AlugaTooC_Sharp.Controllers
             Conexao con = new Conexao();
 
             Estado es = new Estado();
-            es.adicionaEstado("Grosélia", "GA", con.conecta());
 
 
-            ViewBag.Message = "Só aqui no AlugaToo.";
+            //ViewBag.Message = "Só aqui no AlugaToo.";
+            ViewBag.Message = es.getEstados(con.conecta())[14].Id;
 
             return View();
         }
@@ -49,43 +49,69 @@ namespace AlugaTooC_Sharp.Controllers
         {
             return View();
         }
-        public ActionResult formCidadesEstados()
+        public ActionResult formEndereco(int cidade)
         {
-            /*Conexao con = new Conexao();
-            Estado es = new Estado();
+            Conexao con = new Conexao();
+            var co = con.conecta();
+            HomeController.cidade = cidade;
             
-            ViewBag.Message = es.getEstados(con.conecta()).ToString();
-            */
             return View();
         }
-        public ActionResult EfetuaLogin(String usuario, String senha)
+        public ActionResult ListaCidade(int id)
+        {
+            Cidade ci = new Cidade();
+            Conexao con = new Conexao();
+            var co = con.conecta();
+            return Json(ci.getCidades(27, co));
+        }
+        public ActionResult formEstado()
+        {
+            Conexao con = new Conexao();
+            Estado es = new Estado();
+            ViewBag.Model = es.getEstados(con.conecta());
+            return View();
+        }
+        public ActionResult formCidades(int estado)
+        {
+            HomeController.estado = estado;
+            Conexao con = new Conexao();
+            Cidade ci = new Cidade();
+            ViewBag.Model = ci.getCidades(estado, con.conecta());
+            return View();
+        }
+        public void EfetuaLogin(String usuario, String senha)
         {
             Conexao con = new Conexao();
             Usuario us = new Usuario();
-            if (us.verificaUsuario(usuario, senha, con.conecta()) != null)
+            var co = con.conecta();
+            if (us.verificaUsuario(usuario, senha,co) != null)
             {
                 Session["usuario"] = usuario;
                 Session["senha"] = senha;
-                
-                return View();
+                Session["idPessoaF"] = us.getIdPessoaF(usuario, senha, co);
+
+                //return View();
+                Response.Redirect("~/Home/Index");
 
             }
-            Session["usuario"] = null;
-            Session["senha"] = null;
-            return null;
+            else
+            {
+                Session["usuario"] = null;
+                Session["senha"] = null;
+                //return null;
+                Response.Redirect("~/Home/Login");
+            }
 
         }
-        public ActionResult formCadastroPessoa(int estado, int cidade, String bairro, String logradouro, int numero)
+        public ActionResult formCadastroPessoa(String bairro, String logradouro, int numero)
         {
-            if (estado == 0 && cidade == 0 && bairro == null && logradouro == null && numero == 0)
+            if (bairro == null && logradouro == null && numero == 0)
             {
                 Response.Write("Os campos não podem estar vazios!");
                 return null;
             }
             else
             {
-                HomeController.estado = estado;
-                HomeController.cidade = cidade;
                 HomeController.bairro = bairro;
                 HomeController.logradouro = logradouro;
                 HomeController.numero = numero;
@@ -121,7 +147,7 @@ namespace AlugaTooC_Sharp.Controllers
             }
             con.desconecta();
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

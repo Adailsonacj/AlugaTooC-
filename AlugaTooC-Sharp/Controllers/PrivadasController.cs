@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AlugaTooC_Sharp.Dao;
+using AlugaTooC_Sharp.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,13 +28,6 @@ namespace AlugaTooC_Sharp.Controllers
             return login.validaSessao();            
             */
         }
-        public void btnPaginaUsuario(String btn)
-        {
-            if (btn.Equals("ALUGAR PRODUTO"))
-            {
-                Response.Redirect("~/Home/Index");
-            }
-        }
         public ActionResult CadastroProduto()
         {
             var vrSession = Session["usuario"];
@@ -46,12 +41,25 @@ namespace AlugaTooC_Sharp.Controllers
                 return View();
             }
         }
+        public ActionResult CadastroProdutoSucesso()
+        {
+            return View();
+        }
+        public ActionResult MeusProdutos()
+        {
+            return View();
+        }
         public void AlteraEmail(String usuario, String senha)
         {
-            if (usuario.Equals("adailson"))
-            {
-                Response.Redirect("~/Home/Index");
-            }
+            Conexao con = new Conexao();
+            Usuario us = new Usuario();
+            us.alteraUsuario(Session["usuario"].ToString(), usuario, senha, con.conecta());
+            Response.Redirect("~/Privadas/PaginaUsuario");
+        }
+        public void PaginaLogOut()
+        {
+            Session.Clear();
+            Response.Redirect("~/Home/Index");
         }
     }
 }

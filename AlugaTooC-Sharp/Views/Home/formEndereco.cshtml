@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Cadastre-se";
+}
+<h1>@ViewBag.Message</h1>
+
+<h2>Preencha com seu endereço</h2>
+
+<div class="container">
+    <form method="post" action="formCadastroPessoa">
+        <center>
+            <div class="form-group">
+
+                <input type="text" name="bairro" placeholder="Digite Bairro" class="form-control" required>
+                <br>
+
+                <input type="text" name="logradouro" placeholder="Logradouro" class="form-control" required>
+                <br>
+
+                <input type="number" name="numero" placeholder="Seu número" class="form-control" required>
+                <br>
+            </div>
+            <input type="submit" name="btnCadastraEndereco" value="Cadastrar" class="btn btn-success" required><br><br>
+        </center>
+    </form>
+</div>

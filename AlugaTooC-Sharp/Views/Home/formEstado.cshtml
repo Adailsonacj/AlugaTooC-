@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "formEstado";
+}
+
+<h2>Selecione seu Estado</h2>
+<form method="post" action="formCidades">
+    <select name="estado" class="custom-select" required>
+        @foreach (var estado in ViewBag.Model)
+        {
+            <option value="@estado.Id">@estado.Nome</option>
+        }
+    </select><br><br>
+    <input type="submit" name="btnEstado" value="Enviar" class="btn btn-success" required><br>
+</form>

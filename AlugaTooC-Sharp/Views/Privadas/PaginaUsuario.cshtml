@@ -4,14 +4,15 @@
 <html lang="pt-br">
 <body>
     <div class="container">
-        <form method="get" action="btnPaginaUsuario">
-            <input type="button" name="btn" value="ALUGAR PRODUTO" class="btn btn-success">
-            <input type="button" name="btn" value="Ver meus produtos" class="btn btn-danger">
+        <form method="" action="">
+            <a class="btn btn-info" href="~/Privadas/MeusProdutos" role="button">Ver Produtos</a>
+
+            <a class="btn btn-info" href="~/Privadas/CadastroProduto" role="button">Alugar Produto</a>
         </form>
         <br />
         <form method="POST">
             <div class="pull-right">
-                <input type="button" data-toggle="modal" data-target="#modalEditaEmail" value="Alterar Email"
+                <input type="button" data-toggle="modal" data-target="#modalEditaEmail" value="Alterar usuario de acesso"
                        class="btn btn-warning">
             </div>
         </form>
@@ -20,7 +21,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title text-center" id="modalEditaEmail">Edite seu email!</h4>
+                        <h4 class="modal-title text-center" id="modalEditaEmail">Altere seu usuario de acesso!</h4>
                     </div>
                     <div class="modal-body">
                         <form method="post" action="AlteraEmail">
@@ -28,7 +29,7 @@
                             <br>
                             <input type="password" name="senha" placeholder="Digite sua senha" class="form-control" required>
                             <br />
-                            <input type="submit" name="btnAlteraEmail" value="Alterar" />
+                            <input type="submit" class="btn btn-info" name="btnAlteraEmail" value="Alterar" />
                         </form>
                     </div>
                 </div>
