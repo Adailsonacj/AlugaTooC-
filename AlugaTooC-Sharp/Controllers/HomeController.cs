@@ -12,7 +12,6 @@ namespace AlugaTooC_Sharp.Controllers
 {
     public class HomeController : Controller
     {
-
         public static int estado;
         public static int cidade;
         public static String bairro;
@@ -20,12 +19,13 @@ namespace AlugaTooC_Sharp.Controllers
         public static int numero;
         public static int lerolero = 4000;
 
-
         public ActionResult Index()
         {
-            return View();
+            Conexao con = new Conexao();
+            Produto pr = new Produto();
+            var listProdutos = pr.getProdutos(con.conecta());
+            return View(listProdutos);
         }
-
         public ActionResult About()
         {
             Conexao con = new Conexao();
@@ -38,7 +38,6 @@ namespace AlugaTooC_Sharp.Controllers
 
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Página de contato.";
@@ -54,7 +53,7 @@ namespace AlugaTooC_Sharp.Controllers
             Conexao con = new Conexao();
             var co = con.conecta();
             HomeController.cidade = cidade;
-            
+
             return View();
         }
         public ActionResult ListaCidade(int id)
@@ -84,7 +83,7 @@ namespace AlugaTooC_Sharp.Controllers
             Conexao con = new Conexao();
             Usuario us = new Usuario();
             var co = con.conecta();
-            if (us.verificaUsuario(usuario, senha,co) != null)
+            if (us.verificaUsuario(usuario, senha, co) != null)
             {
                 Session["usuario"] = usuario;
                 Session["senha"] = senha;
@@ -140,6 +139,7 @@ namespace AlugaTooC_Sharp.Controllers
                                 pe.cadastraPessoa(nome, nascimento, en.getUltimoRegistro(co), co);
                                 pf.cadastraPessoaFisica(cpf, rg, pe.getUltimoRegistro(co), co);
                                 us.cadastraUsuario(usuario, senha, pf.getUltimoRegistro(co), co);
+                                ViewBag.Message = true;
                             }
                         }
                     }

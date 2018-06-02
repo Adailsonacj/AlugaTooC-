@@ -1,7 +1,25 @@
 ﻿
 @{
-    ViewBag.Title = "MeusProdutos";
+    ViewBag.Title = "Meus Produtos";
 }
 
-<h2>MeusProdutos</h2>
+<h2>Meus Produtos</h2>
+<div class="container">
+    <table class="table table-striped talbe-bordered">
+        @foreach (var produtos in Model)
+        {
+            <tr>
+                <td>Nome: @produtos.Nome</td>
+                <td>Valor: R$ @produtos.valor</td>
+                <td>
+                    <form action="removeProduto" method="post">
+                        <input type="hidden" name="id" value="@produtos.Id">
+
+                        <button class="btn btn-danger">Remover</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
 
