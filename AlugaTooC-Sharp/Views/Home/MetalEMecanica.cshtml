@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "MetalEMecanica";
+}
+
+<h2>Metal&Mecanica</h2>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<body>
+    <div class="container">
+        <!-- Aqui começa o conteudo -->
+        <div class="row">
+            @foreach (var produto in ViewBag.Model)
+            {
+                <div class="container">
+                    <div class="card-deck mb-3 text-center">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal">@produto.Nome</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">R$ @produto.valor <small class="text-muted">/ hora</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>@produto.Descricao</li>
+                                    <li><img src="@produto.caminhoImagem" width="150" height="150" /></li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Alugue agora!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- div row conteudo -->
+            }
+        </div>
+</body>
+</html>
+

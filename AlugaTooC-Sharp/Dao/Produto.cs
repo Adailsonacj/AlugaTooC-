@@ -58,5 +58,18 @@ namespace AlugaTooC_Sharp.Dao
             NpgsqlCommand script = new NpgsqlCommand("delete from public.produto where idProduto = '"+Id+"'", con);
             script.ExecuteNonQuery();
         }
+        public List<ProdutoModel> getProdutosCategoria(int categoria, NpgsqlConnection con)
+        {
+            NpgsqlCommand script = new NpgsqlCommand("SELECT * FROM produto where fkIdCategoria = '"+categoria+"'", con);
+            List<ProdutoModel> result = new List<ProdutoModel>();
+            NpgsqlDataReader reader = script.ExecuteReader();
+            while (reader.Read())
+            {
+                result.Add(new ProdutoModel(reader.GetInt32(0), reader["nome"].ToString(), reader["descricao"].ToString(), Convert.ToInt32(reader["valor"]), Convert.ToInt32(reader["fkIdCategoria"]), reader["caminhoImagem"].ToString()));
+
+            }
+            reader.Close();
+            return result;
+        }
     }
 }

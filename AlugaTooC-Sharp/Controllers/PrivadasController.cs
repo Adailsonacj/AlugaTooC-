@@ -62,7 +62,7 @@ namespace AlugaTooC_Sharp.Controllers
                     {
                         PrivadasController.path = Path.Combine(Server.MapPath("~/Imagens"), file.FileName);
                         PrivadasController.file = file;
-                        PrivadasController.caminhoImagem = "~/Imagens/" + file.FileName + "";
+                        PrivadasController.caminhoImagem = "Imagens/" + file.FileName + "";
                         Response.Redirect("~/Privadas/CadastroProduto");
                     }
                 }

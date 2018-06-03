@@ -102,6 +102,22 @@ namespace AlugaTooC_Sharp.Controllers
             }
 
         }
+        public ActionResult CasaEJardim()
+        {
+            Conexao con = new Conexao();
+            Produto pr = new Produto();
+            ViewBag.Model = pr.getProdutosCategoria(1, con.conecta());
+            con.desconecta();
+            return View();
+        }
+        public ActionResult MetalEMecanica()
+        {
+            Conexao con = new Conexao();
+            Produto pr = new Produto();
+            ViewBag.Model = pr.getProdutosCategoria(5, con.conecta());
+            con.desconecta();
+            return View();
+        }
         public ActionResult formCadastroPessoa(String bairro, String logradouro, int numero)
         {
             if (bairro == null && logradouro == null && numero == 0)

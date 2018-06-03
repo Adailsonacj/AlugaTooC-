@@ -20,15 +20,25 @@
                     <li>@Html.ActionLink("Início", "Index", "Home")</li>
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
                     <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categorias
+                        </a>
+                        <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Home/CasaEJardim">Casa&Jardim</a>
+                            <a class="dropdown-item" href="/Home/MetalEMecanica">Metal&Mecanica</a>
+                        </div>
+                    </li>
                     @if (Session["usuario"] == null)
-                    {
-                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
-                    }
+    {
+                <li>@Html.ActionLink("Login", "Login", "Home")</li>
+}
                     @if (Session["usuario"] != null)
-                    {
-                        <li>@Html.ActionLink("PaginaUsuario", "PaginaUsuario", "Privadas")</li>
-                        <li>@Html.ActionLink("Sair", "PaginaLogOut", "Privadas")</li>
-                    }
+    {
+                <li>@Html.ActionLink("PaginaUsuario", "PaginaUsuario", "Privadas")</li>
+                <li>@Html.ActionLink("Sair", "PaginaLogOut", "Privadas")</li>
+}
                 </ul>
             </div>
         </div>
