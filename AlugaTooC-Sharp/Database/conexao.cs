@@ -4,7 +4,7 @@ namespace AlugaTooC_Sharp.Database
 {
     public class Conexao
     {
-        string connection = "Server=localhost;Port=5432;Database=alugatoo;User Id=postgres;Password=root;";
+        string connection = "Server=localhost;Port=5433;Database=alugatoo;User Id=postgres;Password=root;";
         NpgsqlConnection con = new NpgsqlConnection();
 
         public NpgsqlConnection conecta()
